@@ -4,6 +4,7 @@
    <ns0:id>r_hss_db</ns0:id>
    <ns0:name>한승수_학사_그룹</ns0:name>
    <ns0:package>hss</ns0:package>
+   <ns0:description>sdsd</ns0:description>
    <ns0:version>1</ns0:version>
    <ns0:resourceType>BizNode</ns0:resourceType>
    <ns0:order>0</ns0:order>
