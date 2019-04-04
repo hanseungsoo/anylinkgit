@@ -4,6 +4,7 @@
    <ns0:id>l_sync_db</ns0:id>
    <ns0:name>디비_동기화_거래</ns0:name>
    <ns0:package>hss.r_hss_db</ns0:package>
+   <ns0:description>sf</ns0:description>
    <ns0:version>2</ns0:version>
    <ns0:resourceType>BizNode</ns0:resourceType>
    <ns0:parentId>hss.r_hss_db</ns0:parentId>
