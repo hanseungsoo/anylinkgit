@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpdl:Package xmlns:xpdl="http://www.wfmc.org/2004/XPDL2.0alpha" xmlns:tmax="http://www.tmaxsoft.com/anylink/XPDL20/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <xpdl:Pools>
+    <xpdl:Pool Id="R_DB_INS_Pool_0F2202" Process="F_SYNC_DB" Orientation="VERTICAL">
+      <xpdl:Lanes>
+        <xpdl:Lane Id="R_DB_INS_Lane_0F9403" Name="Lane" ParentPool="R_DB_INS_Pool_0F2202">
+          <xpdl:NodeGraphicsInfos>
+            <xpdl:NodeGraphicsInfo Height="800.0" Width="300.0" BorderColor="c5ccfc"/>
+          </xpdl:NodeGraphicsInfos>
+        </xpdl:Lane>
+      </xpdl:Lanes>
+    </xpdl:Pool>
+  </xpdl:Pools>
+  <xpdl:WorkflowProcesses>
+    <xpdl:WorkflowProcess Id="F_SYNC_DB" Name="플로우_동기화" tmax:Package="ssj.r_ssj_db.l_sync_db">
+      <xpdl:ProcessHeader>
+        <xpdl:Created>2019-01-17T14:34:47+09:00</xpdl:Created>
+        <xpdl:Description>This is a serviceflow process.</xpdl:Description>
+      </xpdl:ProcessHeader>
+      <xpdl:RedefinableHeader>
+        <xpdl:Author>admin</xpdl:Author>
+        <xpdl:Version>2.0.0</xpdl:Version>
+      </xpdl:RedefinableHeader>
+      <xpdl:FormalParameters/>
+      <xpdl:DataFields>
+        <xpdl:DataField Id="errorCode" Name="errorCode" tmax:visible="true">
+          <xpdl:DataType>
+            <xpdl:BasicType Type="STRING"/>
+          </xpdl:DataType>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="VariableExtendedAttribute">
+              <tmax:VariableExtendedAttribute scope="instance" messageClassName="" messageID=""/>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:DataField>
+        <xpdl:DataField Id="errorString" Name="errorString" tmax:visible="true">
+          <xpdl:DataType>
+            <xpdl:BasicType Type="STRING"/>
+          </xpdl:DataType>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="VariableExtendedAttribute">
+              <tmax:VariableExtendedAttribute scope="instance" messageClassName="" messageID=""/>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:DataField>
+        <xpdl:DataField Id="VAR_DB_ARR" Name="디비_데이터_배열" tmax:visible="true">
+          <xpdl:DataType/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="VariableExtendedAttribute">
+              <tmax:VariableExtendedAttribute scope="instance" messageClassName="ssj.r_ssj_db.l_sync_db.M_DB_ARR" messageID="ssj.r_ssj_db.l_sync_db:M_DB_ARR.umsg" type="DataObject"/>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:DataField>
+        <xpdl:DataField Id="VAR_DB_RESULT" Name="디비_결과" tmax:visible="true">
+          <xpdl:DataType/>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="VariableExtendedAttribute">
+              <tmax:VariableExtendedAttribute scope="instance" messageClassName="ssj.r_ssj_db.l_sync_db.M_DB_RESULT" messageID="ssj.r_ssj_db.l_sync_db:M_DB_RESULT.umsg" type="DataObject"/>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+        </xpdl:DataField>
+      </xpdl:DataFields>
+      <xpdl:Activities>
+        <xpdl:Activity Id="F_SYNC_DB_Message_START_Event_0F3808" Name="Message">
+          <xpdl:Description>Message</xpdl:Description>
+          <xpdl:Event>
+            <xpdl:StartEvent Trigger="Message">
+              <xpdl:TriggerResultMessage/>
+            </xpdl:StartEvent>
+          </xpdl:Event>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="MessageEventExtendedAttribute">
+              <tmax:EventExtendedAttribute serviceId="ssj.r_ssj_db.l_sync_db:F_SYNC_DB:F_SYNC_DB_Message_START_Event_0F3808" noLogging="false" checkPoint="false" savePoint="false" type="internal" autoUnregister="false">
+                <tmax:mappingInfo/>
+              </tmax:EventExtendedAttribute>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+          <xpdl:NodeGraphicsInfos>
+            <xpdl:NodeGraphicsInfo>
+              <xpdl:Coordinates YCoordinate="211.0" XCoordinate="158.0"/>
+            </xpdl:NodeGraphicsInfo>
+          </xpdl:NodeGraphicsInfos>
+        </xpdl:Activity>
+        <xpdl:Activity Id="F_SYNC_DB_Database_SEL" Name="데이터 조회" StartMode="Automatic" FinishMode="Automatic">
+          <xpdl:Description>Call DB Adapter Service</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Task>
+              <xpdl:TaskManual/>
+            </xpdl:Task>
+          </xpdl:Implementation>
+          <xpdl:Priority>50</xpdl:Priority>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="TaskActivityExtendedAttribute">
+              <tmax:TaskActivityExtendedAttribute serviceId="ssj.r_ssj_db.l_sync_db:R_DB_SET.orule" noLogging="false" checkPoint="false" savePoint="false" type="DB" taskMode="Service" transMode="Request">
+                <tmax:outputVariableList>
+                  <tmax:variableId>VAR_DB_ARR</tmax:variableId>
+                </tmax:outputVariableList>
+              </tmax:TaskActivityExtendedAttribute>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+          <xpdl:NodeGraphicsInfos>
+            <xpdl:NodeGraphicsInfo tmax:fontColor="3e3f40" Height="60.0" Width="150.0" FillColor="6384bb">
+              <xpdl:Coordinates YCoordinate="199.0" XCoordinate="247.0"/>
+            </xpdl:NodeGraphicsInfo>
+          </xpdl:NodeGraphicsInfos>
+        </xpdl:Activity>
+        <xpdl:Activity Id="F_SYNC_DB_Database_INS" Name="데이터 삽입" StartMode="Automatic" FinishMode="Automatic">
+          <xpdl:Description>Call DB Adapter Service</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Task>
+              <xpdl:TaskManual/>
+            </xpdl:Task>
+          </xpdl:Implementation>
+          <xpdl:Priority>50</xpdl:Priority>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="TaskActivityExtendedAttribute">
+              <tmax:TaskActivityExtendedAttribute serviceId="ssj.r_ssj_db.l_sync_db:R_DB_INS.orule" noLogging="false" checkPoint="false" savePoint="false" type="DB" taskMode="Service" transMode="Request">
+                <tmax:inputVariableList>
+                  <tmax:variableId>VAR_DB_ARR</tmax:variableId>
+                </tmax:inputVariableList>
+                <tmax:outputVariableList>
+                  <tmax:variableId>VAR_DB_RESULT</tmax:variableId>
+                </tmax:outputVariableList>
+              </tmax:TaskActivityExtendedAttribute>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+          <xpdl:NodeGraphicsInfos>
+            <xpdl:NodeGraphicsInfo tmax:fontColor="3e3f40" Height="60.0" Width="150.0" FillColor="6384bb">
+              <xpdl:Coordinates YCoordinate="199.0" XCoordinate="450.0"/>
+            </xpdl:NodeGraphicsInfo>
+          </xpdl:NodeGraphicsInfos>
+        </xpdl:Activity>
+        <xpdl:Activity Id="F_SYNC_DB_ReplyMessage" Name="최종 응답" StartMode="Automatic" FinishMode="Automatic">
+          <xpdl:Description>Activity</xpdl:Description>
+          <xpdl:Implementation>
+            <xpdl:Task>
+              <xpdl:TaskManual/>
+            </xpdl:Task>
+          </xpdl:Implementation>
+          <xpdl:Priority>50</xpdl:Priority>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="TaskActivityExtendedAttribute">
+              <tmax:TaskActivityExtendedAttribute noLogging="false" checkPoint="false" savePoint="false" type="SENDMESSAGE" taskMode="Service" transMode="Response" requestNodeId="F_SYNC_DB_Message_START_Event_0F3808"/>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+          <xpdl:NodeGraphicsInfos>
+            <xpdl:NodeGraphicsInfo tmax:fontColor="3e3f40" Height="60.0" Width="150.0" FillColor="6384bb">
+              <xpdl:Coordinates YCoordinate="199.0" XCoordinate="653.0"/>
+            </xpdl:NodeGraphicsInfo>
+          </xpdl:NodeGraphicsInfos>
+        </xpdl:Activity>
+        <xpdl:Activity Id="F_SYNC_DB_None_END_Event_0F6711" Name="None">
+          <xpdl:Description>None</xpdl:Description>
+          <xpdl:Event>
+            <xpdl:EndEvent Result="None"/>
+          </xpdl:Event>
+          <xpdl:ExtendedAttributes>
+            <xpdl:ExtendedAttribute Name="EventExtendedAttribute">
+              <tmax:EventExtendedAttribute noLogging="false" checkPoint="false" savePoint="false" type="internal" autoUnregister="false"/>
+            </xpdl:ExtendedAttribute>
+          </xpdl:ExtendedAttributes>
+          <xpdl:NodeGraphicsInfos>
+            <xpdl:NodeGraphicsInfo>
+              <xpdl:Coordinates YCoordinate="211.0" XCoordinate="857.0"/>
+            </xpdl:NodeGraphicsInfo>
+          </xpdl:NodeGraphicsInfos>
+        </xpdl:Activity>
+      </xpdl:Activities>
+      <xpdl:Transitions>
+        <xpdl:Transition Id="F_SYNC_DB_Transition_0FD614" Name="Transition" tmax:priority="0" From="F_SYNC_DB_Message_START_Event_0F3808" To="F_SYNC_DB_Database_SEL">
+          <xpdl:Description>Transition</xpdl:Description>
+        </xpdl:Transition>
+        <xpdl:Transition Id="F_SYNC_DB_Transition_0F9417" Name="Transition" tmax:priority="0" From="F_SYNC_DB_Database_SEL" To="F_SYNC_DB_Database_INS">
+          <xpdl:Description>Transition</xpdl:Description>
+        </xpdl:Transition>
+        <xpdl:Transition Id="F_SYNC_DB_Transition_0F591A" Name="Transition" tmax:priority="0" From="F_SYNC_DB_Database_INS" To="F_SYNC_DB_ReplyMessage">
+          <xpdl:Description>Transition</xpdl:Description>
+        </xpdl:Transition>
+        <xpdl:Transition Id="F_SYNC_DB_Transition_0F3A1D" Name="Transition" tmax:priority="0" From="F_SYNC_DB_ReplyMessage" To="F_SYNC_DB_None_END_Event_0F6711">
+          <xpdl:Description>Transition</xpdl:Description>
+        </xpdl:Transition>
+      </xpdl:Transitions>
+      <xpdl:ExtendedAttributes>
+        <xpdl:ExtendedAttribute Name="ProcessExtendedAttribute">
+          <tmax:ProcessExtendedAttribute lastModifiedTime="2019-01-17T14:49:51.214+09:00" backgroundColor="ffffff" serviceMake="true" processTimeOut="0">
+            <tmax:errorCodeMapper xsi:nil="true"/>
+          </tmax:ProcessExtendedAttribute>
+        </xpdl:ExtendedAttribute>
+      </xpdl:ExtendedAttributes>
+    </xpdl:WorkflowProcess>
+  </xpdl:WorkflowProcesses>
+</xpdl:Package>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mes:umessage xmlns:mes="http://www.tmaxsoft.com/promapper/message">
+  <mes:structure physicalName="M_DB_DATA" logicalName="디비_데이터" resourceType="STRUCTURE" resourcePath="hss.r_hss_db.l_sync_db" resourceId="hss.r_hss_db.l_sync_db:M_DB_DATA.umsg" resourceGroup="">
+    <str:structureField physicalName="NAME" logicalName="이름" fieldType="string" decimal="0" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+    <str:structureField physicalName="JUMIN" logicalName="주민번호" fieldType="string" decimal="0" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+    <str:structureField physicalName="PHONE" logicalName="핸드폰번호" fieldType="string" decimal="0" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+  </mes:structure>
+</mes:umessage>

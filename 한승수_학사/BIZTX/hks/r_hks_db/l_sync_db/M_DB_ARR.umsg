@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mes:umessage xmlns:mes="http://www.tmaxsoft.com/promapper/message">
+  <mes:structure physicalName="M_DB_ARR" logicalName="디비_데이터_배열" resourceType="STRUCTURE" resourcePath="hks.r_hks_db.l_sync_db" resourceId="hks.r_hks_db.l_sync_db:M_DB_ARR.umsg" resourceGroup="">
+    <str:structureField physicalName="CNT" logicalName="카운트" fieldType="int" decimal="0" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+    <str:structureField physicalName="ARR" logicalName="데이터배열" fieldType="include" decimal="0" includeStructurePath="hks.r_hks_db.l_sync_db" includeStructureName="M_DB_DATA" referenceId="hks.r_hks_db.l_sync_db:M_DB_DATA.umsg" array="CNT" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+  </mes:structure>
+</mes:umessage>

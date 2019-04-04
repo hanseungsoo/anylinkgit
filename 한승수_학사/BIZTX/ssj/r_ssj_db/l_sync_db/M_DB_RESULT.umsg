@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mes:umessage xmlns:mes="http://www.tmaxsoft.com/promapper/message">
+  <mes:structure physicalName="M_DB_RESULT" logicalName="디비_결과" resourceType="STRUCTURE" resourcePath="ssj.r_ssj_db.l_sync_db" resourceId="ssj.r_ssj_db.l_sync_db:M_DB_RESULT.umsg" resourceGroup="">
+    <str:structureField physicalName="CNT" logicalName="카운트" fieldType="int" decimal="0" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+    <str:structureField physicalName="MSG" logicalName="결과메시지" fieldType="string" decimal="0" xmlns:str="http://www.tmaxsoft.com/promapper/structure"/>
+  </mes:structure>
+</mes:umessage>

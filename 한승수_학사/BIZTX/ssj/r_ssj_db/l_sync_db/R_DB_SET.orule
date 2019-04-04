@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:outboundRuleInfo xmlns:ns0="http://www.tmaxsoft.com/schemas/anylink/" xmlns:ns2="http://www.tmaxsoft.com/schemas/anylink/reliableQueue/" xmlns:ns1="http://www.tmaxsoft.com/schemas/anylink/common/" xmlns:ns3="http://www.tmaxsoft.com/schemas/anylink/serverPlugin/">
+   <ns0:sysId>ssj.r_ssj_db.l_sync_db:R_DB_SET.orule</ns0:sysId>
+   <ns0:id>R_DB_SET</ns0:id>
+   <ns0:name>룰_디비_조회</ns0:name>
+   <ns0:package>ssj.r_ssj_db.l_sync_db</ns0:package>
+   <ns0:resourceType>OutboundRule</ns0:resourceType>
+   <ns0:responseMessage>
+      <ns0:messageId>ssj.r_ssj_db.l_sync_db:M_DB_ARR.umsg</ns0:messageId>
+      <ns0:isArray>false</ns0:isArray>
+   </ns0:responseMessage>
+   <ns0:useResponseHeaderMessage>false</ns0:useResponseHeaderMessage>
+   <ns0:adapterId>SSJ_ADT</ns0:adapterId>
+   <ns0:endpointId>SSJ_ADT.SSJ_EP</ns0:endpointId>
+   <ns0:requestTimeout>10000</ns0:requestTimeout>
+   <ns0:protocol>DB</ns0:protocol>
+   <ns0:dbOutboundRuleInfo>
+      <ns0:ruleType>general</ns0:ruleType>
+      <ns0:isArrayMessage>true</ns0:isArrayMessage>
+      <ns0:ruleProperty>
+         <ns0:arraySize>1</ns0:arraySize>
+         <ns0:maximumTransferSize>5000</ns0:maximumTransferSize>
+         <ns0:isolationLevel>not Use</ns0:isolationLevel>
+         <ns0:databaseEncoding>System Default</ns0:databaseEncoding>
+         <ns0:processRemaindersOnNextSchedule>true</ns0:processRemaindersOnNextSchedule>
+      </ns0:ruleProperty>
+      <ns0:statement>
+         <ns0:sql>SELECT 
+NAME,
+JUMIN,
+PHONE
+FROM
+KAIST_SSJ_SRC</ns0:sql>
+         <ns0:outputParameters>
+            <ns0:parameter>
+               <ns0:position>1</ns0:position>
+               <ns0:label>NAME</ns0:label>
+            </ns0:parameter>
+            <ns0:parameter>
+               <ns0:position>2</ns0:position>
+               <ns0:label>JUMIN</ns0:label>
+            </ns0:parameter>
+            <ns0:parameter>
+               <ns0:position>3</ns0:position>
+               <ns0:label>PHONE</ns0:label>
+            </ns0:parameter>
+         </ns0:outputParameters>
+         <ns0:outputMapping>
+            <ns0:copy>
+               <ns0:lable>JUMIN</ns0:lable>
+               <ns0:from>
+                  <ns0:arrayDataType>false</ns0:arrayDataType>
+                  <ns0:dataType>LONGVARCHAR</ns0:dataType>
+                  <ns0:expression>2</ns0:expression>
+               </ns0:from>
+               <ns0:to>
+                  <ns0:arrayDataType>true</ns0:arrayDataType>
+                  <ns0:dataType>string</ns0:dataType>
+                  <ns0:expression>M_DB_ARR_0.ARR*.JUMIN</ns0:expression>
+               </ns0:to>
+            </ns0:copy>
+            <ns0:copy>
+               <ns0:lable>NAME</ns0:lable>
+               <ns0:from>
+                  <ns0:arrayDataType>false</ns0:arrayDataType>
+                  <ns0:dataType>LONGVARCHAR</ns0:dataType>
+                  <ns0:expression>1</ns0:expression>
+               </ns0:from>
+               <ns0:to>
+                  <ns0:arrayDataType>true</ns0:arrayDataType>
+                  <ns0:dataType>string</ns0:dataType>
+                  <ns0:expression>M_DB_ARR_0.ARR*.NAME</ns0:expression>
+               </ns0:to>
+            </ns0:copy>
+            <ns0:copy>
+               <ns0:lable>PHONE</ns0:lable>
+               <ns0:from>
+                  <ns0:arrayDataType>false</ns0:arrayDataType>
+                  <ns0:dataType>LONGVARCHAR</ns0:dataType>
+                  <ns0:expression>3</ns0:expression>
+               </ns0:from>
+               <ns0:to>
+                  <ns0:arrayDataType>true</ns0:arrayDataType>
+                  <ns0:dataType>string</ns0:dataType>
+                  <ns0:expression>M_DB_ARR_0.ARR*.PHONE</ns0:expression>
+               </ns0:to>
+            </ns0:copy>
+            <ns0:rowCountMapping>
+               <ns0:lable>Row Count</ns0:lable>
+               <ns0:from>
+                  <ns0:arrayDataType>false</ns0:arrayDataType>
+                  <ns0:dataType>LONGVARCHAR</ns0:dataType>
+                  <ns0:expression>4</ns0:expression>
+               </ns0:from>
+               <ns0:to>
+                  <ns0:arrayDataType>false</ns0:arrayDataType>
+                  <ns0:dataType>int</ns0:dataType>
+                  <ns0:expression>M_DB_ARR_0.CNT</ns0:expression>
+               </ns0:to>
+            </ns0:rowCountMapping>
+         </ns0:outputMapping>
+      </ns0:statement>
+   </ns0:dbOutboundRuleInfo>
+</ns0:outboundRuleInfo>
